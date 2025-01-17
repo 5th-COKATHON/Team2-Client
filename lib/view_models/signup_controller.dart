@@ -62,7 +62,7 @@ class SignupController extends GetxController {
 
       String jsonData = json.encode(loginData);
       dynamic response = await RemoteDataSource.loginApi(jsonData);
-
+//response.body
       if (response != null) {
         print("로그인 성공, 응답: $response");
         Map<String, dynamic> responseData = json.decode(response);

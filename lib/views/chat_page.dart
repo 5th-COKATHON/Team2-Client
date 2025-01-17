@@ -28,8 +28,10 @@ class ChatPage extends StatelessWidget {
                 ),
               ),
               child: Center(
-                child: Text(
-                  '하고 싶은 말 있으면 뭐든지 해봐.',
+                  child: Obx(
+                () => Text(
+                  controller.messageText.value,
+                  // '하고 싶은 말 있으면 뭐든지 해봐.',
                   style: TextStyle(
                     color: Color(0xFF504F4A),
                     fontSize: 14,
@@ -37,7 +39,7 @@ class ChatPage extends StatelessWidget {
                     height: 1.60,
                   ),
                 ),
-              ),
+              )),
             ),
           ),
           SizedBox(
@@ -107,7 +109,9 @@ class ChatPage extends StatelessWidget {
                       return Padding(
                         padding: const EdgeInsets.all(8.0),
                         child: GestureDetector(
-                          onTap: () {},
+                          onTap: () {
+                            controller.chatResponseApi();
+                          },
                           child: Container(
                             width: 32,
                             height: 32,

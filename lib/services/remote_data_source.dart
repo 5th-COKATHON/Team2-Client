@@ -87,7 +87,36 @@ class RemoteDataSource {
       if (response.statusCode == 200) {
         debugPrint('GET 요청 성공');
         print(response.body);
-        print(jsonDecode(response.body)['success']);
+        final data = jsonDecode(response.body)['response'];
+        print("data : $data");
+        // print(jsonDecode(response.body)['success']);
+
+        return data;
+      } else {
+        debugPrint('GET 요청 실패: (${response.statusCode})${response.body}');
+        return response;
+      }
+    } catch (e) {
+      debugPrint('GET 요청 중 예외 발생: $e');
+      return;
+    }
+  }
+
+  static Future<dynamic> getchatApi(String endPoint) async {
+    String apiUrl = '$baseUrl/$endPoint';
+    debugPrint('GET 요청: $endPoint');
+
+    try {
+      final response = await http.get(Uri.parse(apiUrl));
+
+      if (response.statusCode == 200) {
+        debugPrint('GET 요청 성공');
+        print(response.body);
+        Map<String, String> responseData = json.decode(response.body);
+        String text = responseData['response']!;
+        print("text : $text");
+        // print(jsonDecode(response.body)['response']);
+        // print(response.body['response']);
         return jsonDecode(response.body);
       } else {
         debugPrint('GET 요청 실패: (${response.statusCode})${response.body}');
@@ -164,6 +193,22 @@ class RemoteDataSource {
     if (response) {
       print("코드 인증 성공ㅇ;ㅣㅇ;ㄹ");
     }
+  }
+
+  static Future<dynamic> chatApi(String? sessionKey, String? text) async {
+    String endPoint = 'api/chat?sessionKey=$sessionKey&message=$text';
+
+    dynamic response = await RemoteDataSource.getApi(endPoint);
+    print("dddd$response");
+    if (response != null) {
+      print(response);
+      print("response 반영");
+      // Map<String, dynamic> responseData = json.decode(response);
+
+      // String msg = responseData['response'] ?? '';
+      // print("dddddd $msg");
+    }
+    return response;
   }
 
   static Future<dynamic> saveNickNameApi(String jsonData) async {
