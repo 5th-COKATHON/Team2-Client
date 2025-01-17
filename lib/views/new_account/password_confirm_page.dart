@@ -23,7 +23,7 @@ class PasswordConfirmPage extends StatelessWidget {
                   child: SizedBox(
                     width: 312,
                     child: Text(
-                      '입력한 메일 주소로\n비밀번호를 보내드렸어요',
+                      '회원가입 완료',
                       style: TextStyle(
                         color: Color(0xFF171717),
                         fontSize: 24,
@@ -38,60 +38,60 @@ class PasswordConfirmPage extends StatelessWidget {
                 ),
                 // 비밀번호 입력 창
 
-                Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    SizedBox(
-                      width: 312,
-                      child: Obx(() {
-                        return TextField(
-                          controller: controller.passwordController,
-                          onChanged: (value) {
-                            controller.updateEmail(value);
-                          },
-                          obscureText: !controller
-                              .isPasswordVisible.value, // 비밀번호 가시성 설정
-                          decoration: InputDecoration(
-                            hintText: '비밀번호를 입력해 주세요',
-                            hintStyle: TextStyle(
-                              color: Color(0xFF9E9E9E),
-                              fontSize: 16,
-                              fontWeight: FontWeight.w400,
-                              height: 1.40,
-                            ),
-                            // 기본 밑줄 스타일
-                            enabledBorder: UnderlineInputBorder(
-                              borderSide: BorderSide(
-                                color: Color(0xFFe0e0e0), // 기본 밑줄 색상
-                                width: 1, // 기본 밑줄 두께
-                              ),
-                            ),
-                            // 포커스 시 밑줄 스타일
-                            focusedBorder: UnderlineInputBorder(
-                              borderSide: BorderSide(
-                                color: Color(0xFFa3bf98),
-                                width: 1, // 포커스 시 밑줄 두께
-                              ),
-                            ),
-                            // 비밀번호 가시성 토글 아이콘 추가
-                            suffixIcon: IconButton(
-                              icon: Icon(
-                                controller.isPasswordVisible.value
-                                    ? Icons.visibility_outlined // 가시성 ON
-                                    : Icons.visibility_off_outlined, // 가시성 OFF
-                                color: Color(0xFF9E9E9E),
-                              ),
-                              onPressed: () {
-                                controller.isPasswordVisible.value =
-                                    !controller.isPasswordVisible.value;
-                              },
-                            ),
-                          ),
-                        );
-                      }),
-                    ),
-                  ],
-                ),
+                //     Column(
+                //       crossAxisAlignment: CrossAxisAlignment.start,
+                //       children: [
+                //         SizedBox(
+                //           width: 312,
+                //           child: Obx(() {
+                //             return TextField(
+                //               controller: controller.passwordController,
+                //               onChanged: (value) {
+                //                 controller.updateEmail(value);
+                //               },
+                //               obscureText: !controller
+                //                   .isPasswordVisible.value, // 비밀번호 가시성 설정
+                //               decoration: InputDecoration(
+                //                 hintText: '비밀번호를 입력해 주세요',
+                //                 hintStyle: TextStyle(
+                //                   color: Color(0xFF9E9E9E),
+                //                   fontSize: 16,
+                //                   fontWeight: FontWeight.w400,
+                //                   height: 1.40,
+                //                 ),
+                //                 // 기본 밑줄 스타일
+                //                 enabledBorder: UnderlineInputBorder(
+                //                   borderSide: BorderSide(
+                //                     color: Color(0xFFe0e0e0), // 기본 밑줄 색상
+                //                     width: 1, // 기본 밑줄 두께
+                //                   ),
+                //                 ),
+                //                 // 포커스 시 밑줄 스타일
+                //                 focusedBorder: UnderlineInputBorder(
+                //                   borderSide: BorderSide(
+                //                     color: Color(0xFFa3bf98),
+                //                     width: 1, // 포커스 시 밑줄 두께
+                //                   ),
+                //                 ),
+                //                 // 비밀번호 가시성 토글 아이콘 추가
+                //                 suffixIcon: IconButton(
+                //                   icon: Icon(
+                //                     controller.isPasswordVisible.value
+                //                         ? Icons.visibility_outlined // 가시성 ON
+                //                         : Icons.visibility_off_outlined, // 가시성 OFF
+                //                     color: Color(0xFF9E9E9E),
+                //                   ),
+                //                   onPressed: () {
+                //                     controller.isPasswordVisible.value =
+                //                         !controller.isPasswordVisible.value;
+                //                   },
+                //                 ),
+                //               ),
+                //             );
+                //           }),
+                //         ),
+                //       ],
+                //     ),
               ],
             ),
             // 다음으로 버튼

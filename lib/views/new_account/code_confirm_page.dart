@@ -2,12 +2,18 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:team2_client/view_models/new_account/code_confirm_controller.dart';
 
-class CodeConfirmPage extends StatelessWidget {
+class CodeConfirmPage extends StatefulWidget {
   const CodeConfirmPage({super.key});
 
   @override
+  State<CodeConfirmPage> createState() => _CodeConfirmPageState();
+}
+
+class _CodeConfirmPageState extends State<CodeConfirmPage> {
+  @override
   Widget build(BuildContext context) {
     final CodeConfirmController controller = Get.put(CodeConfirmController());
+    // String controller.email.value = Get.arguments;
 
     return Scaffold(
       backgroundColor: Colors.white,
@@ -45,6 +51,8 @@ class CodeConfirmPage extends StatelessWidget {
                         controller: controller.codeController,
                         onChanged: (value) {
                           controller.updateCode(value);
+                          controller.email.value = Get.arguments.toString();
+                          // print()
                         },
                         decoration: InputDecoration(
                           hintText: '인증번호를 입력해 주세요',
@@ -81,7 +89,7 @@ class CodeConfirmPage extends StatelessWidget {
               child: Obx(
                 () => GestureDetector(
                   onTap: () {
-                    controller.toPasswordConfirm();
+                    controller.toNickname();
                   },
                   child: Container(
                     width: 312,
