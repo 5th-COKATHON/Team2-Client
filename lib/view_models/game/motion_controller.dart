@@ -1,6 +1,24 @@
+import 'dart:convert';
+
 import 'package:get/get.dart';
+import 'package:shared_preferences/shared_preferences.dart';
+import 'package:team2_client/models/user_data.dart';
+import 'package:team2_client/services/remote_data_source.dart';
 
 class MotionController extends GetxController {
+  // // 유저 데이터
+  // var userData = UserData(
+  //   userId: 0,
+  //   email: '',
+  //   nickname: '',
+  //   userPoint: 0,
+  //   level: 0,
+  // ).obs;
+
+  // void updateUserState(UserData newUserData) {
+  //   userData.value = newUserData;
+  // }
+
   // 하트
   var heartCount = 3.obs; // 초기 하트 개수
   var maxHeart = 3; // 최대 하트 개수
@@ -22,6 +40,9 @@ class MotionController extends GetxController {
     ever(coinCount, (value) {
       print('현재 코인 개수: $value');
     });
+
+    // // 앱 초기화 시 유저 데이터 가져오기
+    // fetchUserDataApi();
   }
 
   void decrementHeart() {
@@ -34,7 +55,7 @@ class MotionController extends GetxController {
   }
 
   void incrementHeart() {
-    if (heartCount <= 3) {
+    if (heartCount.value < maxHeart) {
       heartCount.value++;
     }
   }
@@ -80,7 +101,6 @@ class MotionController extends GetxController {
 
   void levelUp() {
     level.value++;
-    print('레벨업! 현재 레벨: ${level.value}');
   }
 
   int get targetMotionCount => level.value * 10; // 목표 모션 수
@@ -113,7 +133,7 @@ class MotionController extends GetxController {
       isShaking = true;
       shakeCount++;
       actionMessage.value = "기기를 흔들었어요! (${shakeCount.value}번)";
-      Future.delayed(Duration(seconds: 1), () {
+      Future.delayed(const Duration(seconds: 1), () {
         isShaking = false; // 흔들림 상태 초기화
       });
     }
@@ -131,4 +151,77 @@ class MotionController extends GetxController {
   void toQuestPage() {
     Get.toNamed('/game/quest');
   }
+
+  // // 세션 키 받아오기
+  // Future<String?> getSessionKey() async {
+  //   final prefs = await SharedPreferences.getInstance();
+  //   final sessionKey = prefs.getString('sessionKey');
+  //   print('가져온 SessionKey: $sessionKey');
+  //   return sessionKey;
+  // }
+
+  // // 유저 데이터 가져오기
+  // Future<void> fetchUserDataApi() async {
+  //   final sessionKey = await getSessionKey();
+
+  //   if (sessionKey != null) {
+  //     print("유저 데이터 API 호출 시작");
+
+  //     try {
+  //       dynamic response = await RemoteDataSource.fetchUserData(sessionKey);
+
+  //       if (response != null) {
+  //         // JSON 데이터를 디코딩하여 UserData 객체로 변환
+  //         Map<String, dynamic> responseData = json.decode(response);
+  //         UserData newUserData = UserData.fromJson(responseData);
+
+  //         // 데이터 업데이트
+  //         updateUserState(newUserData);
+
+  //         print('유저 데이터: $responseData');
+  //       } else {
+  //         print("API 호출 실패: 응답 없음");
+  //       }
+  //     } catch (e) {
+  //       print("API 에러: $e");
+  //     }
+  //   } else {
+  //     print('SessionKey가 저장되어 있지 않습니다.');
+  //   }
+  // }
+
+  // // 레벨업
+  // Future<void> levelUpApi() async {
+  //   final sessionKey = await getSessionKey();
+
+  //   if (sessionKey != null) {
+  //     print("레벨업 API 호출 시작");
+
+  //     try {
+  //       Map<String, String> data = {
+  //         "sessionKey": sessionKey,
+  //       };
+
+  //       String jsonData = json.encode(data);
+  //       dynamic response = await RemoteDataSource.levelUpApi(jsonData);
+
+  //       if (response != null) {
+  //         // JSON 데이터를 UserData 객체로 변환
+  //         Map<String, dynamic> responseData = json.decode(response);
+  //         UserData updatedUserData = UserData.fromJson(responseData);
+
+  //         // 레벨업 이후 데이터 업데이트
+  //         updateUserState(updatedUserData);
+
+  //         print('레벨업 성공: ${updatedUserData.level}');
+  //       } else {
+  //         print("API 호출 실패");
+  //       }
+  //     } catch (e) {
+  //       print("API 에러: $e");
+  //     }
+  //   } else {
+  //     print('SessionKey가 저장되어 있지 않습니다.');
+  //   }
+  // }
 }

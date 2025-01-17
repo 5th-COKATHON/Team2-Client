@@ -180,4 +180,30 @@ class RemoteDataSource {
     // print(jsonDecode(response.body));
     return response;
   }
+
+  static Future<dynamic> levelUpApi(String jsonData) async {
+    String endPoint = 'api/users/level-up';
+    dynamic response = await postApi(endPoint, jsonData);
+    // final data = jsonDecode(response.body);
+    // print(jsonDecode(response.body));
+    return response;
+  }
+
+  static Future<dynamic> fetchUserData(String sessionKey) async {
+    final url = Uri.parse('$baseUrl/api/users/me');
+    final headers = {'Authorization': sessionKey}; // sessionKey 전달
+
+    try {
+      final response = await http.get(url, headers: headers);
+      if (response.statusCode == 200) {
+        return response.body; // JSON 문자열 반환
+      } else {
+        print('API 호출 실패: ${response.statusCode}, ${response.body}');
+        return null;
+      }
+    } catch (e) {
+      print('API 호출 에러: $e');
+      return null;
+    }
+  }
 }
