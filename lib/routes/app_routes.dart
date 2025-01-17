@@ -1,9 +1,14 @@
 import 'package:get/get.dart';
 import 'package:team2_client/views/game_page.dart';
+
+import 'package:team2_client/views/new_account_page.dart';
+import 'package:team2_client/views/rank_board_page.dart';
+
 import 'package:team2_client/views/new_account/code_confirm_page.dart';
 import 'package:team2_client/views/new_account/new_account_page.dart';
 import 'package:team2_client/views/new_account/nickname_page.dart';
 import 'package:team2_client/views/new_account/password_confirm_page.dart';
+
 import 'package:team2_client/views/signup_page.dart';
 import 'package:team2_client/views/start_page.dart';
 
@@ -41,6 +46,10 @@ class AppRoutes {
     GetPage(
       name: '/game',
       page: () => GamePage(),
+    ),
+    GetPage(
+      name: '/rank',
+      page: () => RankBoardPage(),
     ),
   ];
 }
