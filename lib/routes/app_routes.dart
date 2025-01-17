@@ -1,8 +1,7 @@
 import 'package:get/get.dart';
 import 'package:team2_client/views/chat_page.dart';
-import 'package:team2_client/views/game_page.dart';
-
-import 'package:team2_client/views/new_account_page.dart';
+import 'package:team2_client/views/game/game_page.dart';
+import 'package:team2_client/views/game/quest_page.dart';
 import 'package:team2_client/views/rank_board_page.dart';
 
 import 'package:team2_client/views/new_account/code_confirm_page.dart';
@@ -48,6 +47,13 @@ class AppRoutes {
     GetPage(
       name: '/game',
       page: () => GamePage(),
+      children: [
+        // 퀘스트
+        GetPage(
+          name: '/quest',
+          page: () => QuestPage(),
+        ),
+      ],
     ),
     // 챗봇 화면
     GetPage(
