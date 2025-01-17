@@ -16,7 +16,7 @@ class MainApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return GetMaterialApp(
       title: '',
-      initialRoute: '/game',
+      initialRoute: '/rank',
       getPages: AppRoutes.routes,
     );
   }
