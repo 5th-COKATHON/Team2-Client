@@ -50,7 +50,7 @@ class CustomBottomBar extends StatelessWidget {
             activeIcon: Padding(
               padding: const EdgeInsets.only(bottom: 5),
               child: Image.asset(
-                'assets/meh.png',
+                'assets/meh_active.png',
                 width: 24,
               ),
             ),
