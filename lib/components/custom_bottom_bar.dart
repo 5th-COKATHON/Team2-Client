@@ -23,12 +23,12 @@ class CustomBottomBar extends StatelessWidget {
       child: BottomNavigationBar(
         type: BottomNavigationBarType.fixed,
         backgroundColor: Colors.white,
-        selectedItemColor: Colors.black,
+        selectedItemColor: Color(0xFFA3BE98),
         unselectedItemColor: Color(0xffbdbdbd),
         selectedLabelStyle: TextStyle(
-          color: Colors.black,
+          color: Color(0xFFA3BE98),
           fontSize: 11,
-          fontWeight: FontWeight.w400,
+          fontWeight: FontWeight.w600,
           height: 1.20,
         ),
         unselectedLabelStyle: TextStyle(
@@ -38,24 +38,6 @@ class CustomBottomBar extends StatelessWidget {
           height: 1.20,
         ),
         items: <BottomNavigationBarItem>[
-          // 소통하기
-          BottomNavigationBarItem(
-            icon: Padding(
-              padding: const EdgeInsets.only(bottom: 5),
-              child: Image.asset(
-                'assets/smile.png',
-                width: 24,
-              ),
-            ),
-            activeIcon: Padding(
-              padding: const EdgeInsets.only(bottom: 5),
-              child: Image.asset(
-                'assets/smile.png',
-                width: 24,
-              ),
-            ),
-            label: '소통하기',
-          ),
           // 괴롭히기
           BottomNavigationBarItem(
             icon: Padding(
@@ -86,11 +68,29 @@ class CustomBottomBar extends StatelessWidget {
             activeIcon: Padding(
               padding: const EdgeInsets.only(bottom: 5),
               child: Image.asset(
-                'assets/ranking.png',
+                'assets/ranking_active.png',
                 width: 24,
               ),
             ),
             label: '랭킹',
+          ),
+          // 챗봇
+          BottomNavigationBarItem(
+            icon: Padding(
+              padding: const EdgeInsets.only(bottom: 5),
+              child: Image.asset(
+                'assets/chat.png',
+                width: 24,
+              ),
+            ),
+            activeIcon: Padding(
+              padding: const EdgeInsets.only(bottom: 5),
+              child: Image.asset(
+                'assets/chat_active.png',
+                width: 24,
+              ),
+            ),
+            label: '챗봇',
           ),
           // 나의 기록
           BottomNavigationBarItem(
@@ -115,11 +115,13 @@ class CustomBottomBar extends StatelessWidget {
         onTap: (index) {
           switch (index) {
             case 0:
-              break;
-            case 1:
               Get.toNamed('/game');
               break;
+            case 1:
+              // 랭킹
+              break;
             case 2:
+              Get.toNamed('/chat');
               break;
             case 3:
               break;
