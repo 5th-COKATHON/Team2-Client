@@ -16,7 +16,7 @@ class MainApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return GetMaterialApp(
       title: '',
-      initialRoute: '/new_account',
+      initialRoute: '/chat',
       getPages: AppRoutes.routes,
     );
   }

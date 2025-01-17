@@ -1,4 +1,5 @@
 import 'package:get/get.dart';
+import 'package:team2_client/views/chat_page.dart';
 import 'package:team2_client/views/game_page.dart';
 import 'package:team2_client/views/new_account/code_confirm_page.dart';
 import 'package:team2_client/views/new_account/new_account_page.dart';
@@ -19,6 +20,7 @@ class AppRoutes {
       name: '/signup',
       page: () => SignupPage(),
     ),
+    // 회원가입
     GetPage(
       name: '/new_account',
       page: () => NewAccountPage(),
@@ -41,6 +43,11 @@ class AppRoutes {
     GetPage(
       name: '/game',
       page: () => GamePage(),
+    ),
+    // 챗봇 화면
+    GetPage(
+      name: '/chat',
+      page: () => ChatPage(),
     ),
   ];
 }
