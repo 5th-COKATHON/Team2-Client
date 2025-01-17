@@ -118,7 +118,7 @@ class CustomBottomBar extends StatelessWidget {
               Get.toNamed('/game');
               break;
             case 1:
-              // 랭킹
+              Get.toNamed('/rank');
               break;
             case 2:
               Get.toNamed('/chat');

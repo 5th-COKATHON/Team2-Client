@@ -55,6 +55,8 @@ class _GamePageState extends State<GamePage> with TickerProviderStateMixin {
           sqrt(event.x * event.x + event.y * event.y + event.z * event.z);
       if (magnitude > 15.0) {
         controller.incrementShake();
+        controller
+            .changeCharacterImage('assets/shake_character.png'); // 흔들기 캐릭터 변경
         _shakeAnimationController.forward(from: 0); // 흔들기 애니메이션 시작
       }
     });
@@ -380,7 +382,7 @@ class _GamePageState extends State<GamePage> with TickerProviderStateMixin {
             ),
           ),
           SizedBox(
-            height: 34,
+            height: 10,
           ),
           // 타이머
           Center(
@@ -493,9 +495,8 @@ class _GamePageState extends State<GamePage> with TickerProviderStateMixin {
                         ),
                         child: Transform.rotate(
                           angle: _tiltAnimation.value *
-                              (controller.slideCount.value % 2 == 0
-                                  ? 1
-                                  : -1), // 방향 전환
+                              (controller.slideCount.value % 2 == 0 ? 1 : -1),
+                          // 방향 전환
                           child: child,
                         ),
                       );
@@ -511,7 +512,7 @@ class _GamePageState extends State<GamePage> with TickerProviderStateMixin {
             ),
           ),
           SizedBox(
-            height: 80,
+            height: 30,
           ),
           // 괴롭히기 버튼 (타이머 시작)
           Obx(() {

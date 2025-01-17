@@ -28,9 +28,9 @@ class _RankBoardPageState extends State<RankBoardPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Colors.white,
-      bottomNavigationBar: CustomBottomBar(currentIndex: 2),
+      bottomNavigationBar: CustomBottomBar(currentIndex: 1),
       body: Padding(
-        padding: const EdgeInsets.symmetric(horizontal: 24.0, vertical: 24),
+        padding: const EdgeInsets.only(left: 24, right: 24, top: 50),
         child: Column(
           children: [
             // SvgPicture.asset("assets/rank.svg"),

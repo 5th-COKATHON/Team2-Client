@@ -45,12 +45,12 @@ class _SignupPageState extends State<SignupPage> {
               //   }),
               // ),
               SizedBox(
-                height: 40,
+                height: 100,
               ),
-              Container(
-                width: 160,
-                height: 60,
-                color: Colors.grey,
+              Image.asset(
+                'assets/logo.png',
+                width: 100,
+                height: 40,
               ),
               SizedBox(
                 height: 38,
