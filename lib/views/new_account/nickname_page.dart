@@ -46,6 +46,7 @@ class NicknamePage extends StatelessWidget {
                           controller: controller.nicknameController,
                           onChanged: (value) {
                             controller.updateNickname(value);
+                            controller.email.value = Get.arguments.toString();
                           },
                           decoration: InputDecoration(
                             hintText: '닉네임을 입력해 주세요 (10자 이내)',

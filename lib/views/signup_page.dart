@@ -212,7 +212,7 @@ class _SignupPageState extends State<SignupPage> {
                           onTap: controller.isButtonEnabled.value
                               ? () {
                                   // 로그인 동작 실행
-                                  controller.testApi();
+                                  controller.loginApi();
                                   print("dd");
                                 }
                               : null,
@@ -243,6 +243,7 @@ class _SignupPageState extends State<SignupPage> {
                       GestureDetector(
                         onTap: () {
                           // 회원가입 동작 실행
+                          controller.clickedNewAccount(context);
                         },
                         child: Container(
                           width: 312,
