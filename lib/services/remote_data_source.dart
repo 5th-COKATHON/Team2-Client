@@ -7,7 +7,7 @@ class RemoteDataSource {
   static String baseUrl = dotenv.env['API_URL']!;
 
   /// post
-  static Future<dynamic> _postApi(String endPoint, String? jsonData) async {
+  static Future<dynamic> postApi(String endPoint, String? jsonData) async {
     String apiUrl = '$baseUrl/$endPoint';
     Map<String, String> headers = {'Content-Type': 'application/json'};
     // String requestBody = jsonData;
@@ -31,7 +31,7 @@ class RemoteDataSource {
   }
 
   /// patch
-  static Future<dynamic> _patchApi(String endPoint, String? jsonData) async {
+  static Future<dynamic> patchApi(String endPoint, String? jsonData) async {
     String apiUrl = '$baseUrl/$endPoint';
     Map<String, String> headers = {'Content-Type': 'application/json'};
     // String requestBody = jsonData;
@@ -54,7 +54,7 @@ class RemoteDataSource {
   }
 
   /// get
-  static Future<dynamic> _getApi(String endPoint) async {
+  static Future<dynamic> getApi(String endPoint) async {
     String apiUrl = '$baseUrl/$endPoint';
     debugPrint('GET 요청: $endPoint');
 
@@ -75,7 +75,7 @@ class RemoteDataSource {
   }
 
   /// delete
-  static Future<dynamic> _deleteApi(String endPoint) async {
+  static Future<dynamic> deleteApi(String endPoint) async {
     String apiUrl = '$baseUrl/$endPoint';
     debugPrint('DELETE 요청: $endPoint');
 
@@ -93,5 +93,11 @@ class RemoteDataSource {
       debugPrint('DELETE 요청 중 예외 발생: $e');
       return;
     }
+  }
+
+  static Future<dynamic> testApi() async {
+    dynamic response = await RemoteDataSource.getApi('api/test/health');
+    print(response);
+    return response;
   }
 }

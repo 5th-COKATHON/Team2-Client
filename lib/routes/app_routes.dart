@@ -1,6 +1,7 @@
 import 'package:get/get.dart';
 import 'package:team2_client/views/new_account_page.dart';
 import 'package:team2_client/views/signup_page.dart';
+import 'package:team2_client/views/start_page.dart';
 
 class AppRoutes {
   static const HOME = '/';
@@ -8,6 +9,10 @@ class AppRoutes {
   static final routes = [
     GetPage(
       name: HOME,
+      page: () => StartPage(),
+    ),
+    GetPage(
+      name: '/signup',
       page: () => SignupPage(),
     ),
     GetPage(
