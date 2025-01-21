@@ -1,7 +1,7 @@
 # 딱콩!
 
 
-<img src="https://github.com/user-attachments/assets/9e5e5591-a06e-4d9f-8345-ea1dd58a6889" alt="배너" width="100%"/>
+<img src="https://github.com/user-attachments/assets/457802c5-b67b-4a1f-982c-95eb9a9270d4" alt="배너" width="100%"/>
 
 
 <br/>
@@ -10,7 +10,10 @@
 # 1. Project Overview (프로젝트 개요)
 - 프로젝트 이름: 딱콩!
 - 프로젝트 주제 선정 이유 : 기쁨 슬픔 버럭 까칠 소심! 사람의 다양한 감정을 '딱콩!'과 함께 화를 다스리자!
+<img src="https://github.com/user-attachments/assets/212a398a-c8eb-4888-89df-3581550d4699" alt="배너" width="100%"/>
 
+- 플로우 차트
+<img src="https://github.com/user-attachments/assets/4cdfa5d8-0a68-4146-81cc-76e5b1eb34ac" alt="배너" width="100%"/>
 <br/>
 <br/>
 
@@ -25,14 +28,16 @@
 
 # 3. Key Features (주요 기능)
 - **회원가입 / 로그인**
-![image](https://github.com/user-attachments/assets/9fc931a5-8418-4394-a604-e5fa36c72dc7)
+![image](https://github.com/user-attachments/assets/1610249c-1adf-4899-9b81-f78449b651f5)
 
 
 - **괴롭히기 / 데일리 퀘스트**
-![image](https://github.com/user-attachments/assets/cefe99d5-63bd-43bc-94ed-c94b363a51cd)
+![image](https://github.com/user-attachments/assets/c540efa9-4a88-4c6d-894f-301704ef15dc)
+![image](https://github.com/user-attachments/assets/5136006a-3b7d-4a65-86a5-ae315a0dfb5b)
 
 - **챗봇 / 랭킹**
-![image](https://github.com/user-attachments/assets/b3110a35-73b8-4d0e-9f7b-6e9a3e95a996)
+![image](https://github.com/user-attachments/assets/ab974592-ae5b-4ac2-8d41-15f3d943e8ae)
+![image](https://github.com/user-attachments/assets/66ef9c64-a748-49d8-8968-ef7f3e4504c9)
 
 <br/>
 <br/>
